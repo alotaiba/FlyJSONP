@@ -18,9 +18,10 @@ var FlyJSONP = (function (global) {
         garbageCollectGet,
         parametersToString,
         generateRandomName,
-        callErrorGet,
+        callError,
         callSuccessGet,
-        callSuccessPost;
+        callSuccessPost,
+        callComplete;
     
     addEvent = function (element, event, fn) {
         if (element.addEventListener) {
@@ -75,7 +76,7 @@ var FlyJSONP = (function (global) {
         return uuid;
     };
     
-    callErrorGet = function (callback, errorMsg) {
+    callError = function (callback, errorMsg) {
         self.log(errorMsg);
         if (typeof (callback) !== 'undefined') {
             callback(errorMsg);
@@ -83,22 +84,25 @@ var FlyJSONP = (function (global) {
     };
     
     callSuccessGet = function (callback, data) {
-        self.log("GET Success");
-        self.log(data);
+        self.log("GET success");
         if (typeof (callback) !== 'undefined') {
             callback(data);
         }
+        self.log(data);
     };
     
     callSuccessPost = function (callback, data) {
-        self.log("POST Success");
-        self.log(data);
+        self.log("POST success");
         if (typeof (callback) !== 'undefined') {
-            data = data.query.results.postresult;
-            if (data.json) {
-                data = data.json;
-            }
             callback(data);
+        }
+        self.log(data);
+    };
+    
+    callComplete = function (callback) {
+        self.log("Request complete");
+        if (typeof (callback) !== 'undefined') {
+            callback();
         }
     };
     
@@ -121,6 +125,7 @@ var FlyJSONP = (function (global) {
         
         self.log("Initialization options");
         self.log(self.options);
+        return true;
     };
     
     self.log = function (log) {
@@ -150,15 +155,26 @@ var FlyJSONP = (function (global) {
         
         global[callbackName] = function (data) {
             if (typeof (data) === 'undefined') {
-                callErrorGet(options.error, 'Invalid JSON data');
+                callError(options.error, 'Invalid JSON data returned');
             } else {
                 if (options.httpMethod === 'post') {
-                    callSuccessPost(options.success, data);
+                    data = data.query.results;
+                    if (!data || !data.postresult) {
+                        callError(options.error, 'Invalid JSON data returned');
+                    } else {
+                        if (data.postresult.json) {
+                            data = data.postresult.json;
+                        } else {
+                            data = data.postresult;
+                        }
+                        callSuccessPost(options.success, data);
+                    }
                 } else {
                     callSuccessGet(options.success, data);
                 }
             }
             garbageCollectGet(callbackName, script);
+            callComplete(options.complete);
         };
         
         self.log("Getting JSONP data");
@@ -167,7 +183,8 @@ var FlyJSONP = (function (global) {
         
         addEvent(script, 'error', function () {
             garbageCollectGet(callbackName, script);
-            callErrorGet(options.error, 'Error while trying to access the URL');
+            callComplete(options.complete);
+            callError(options.error, 'Error while trying to access the URL');
         });
     };
     
@@ -195,6 +212,10 @@ var FlyJSONP = (function (global) {
         
         if (typeof (options.error) !== 'undefined') {
             getOptions.error = options.error;
+        }
+        
+        if (typeof (options.complete) !== 'undefined') {
+            getOptions.complete = options.complete;
         }
         
         self.get(getOptions);
