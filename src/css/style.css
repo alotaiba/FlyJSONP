@@ -148,7 +148,6 @@ section {
     border-bottom: 5px solid #CACACA;
     position: relative;
     margin-bottom: 20px;
-    margin-top: 10px;
 }
 
 .logo {
@@ -160,7 +159,19 @@ section {
 .download {
     position: absolute;
     right: 0;
-    top: 10px;
+    bottom: 10px;
+}
+
+#social {
+    float: left;
+    list-style: none;
+    margin: 0;
+}
+
+#social li {
+    float: left;
+    margin: 0 10px 0 0;
+
 }
 
 .try_it {

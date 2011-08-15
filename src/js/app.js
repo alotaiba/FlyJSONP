@@ -1,6 +1,7 @@
 (function($) {
     var app = $.sammy('#dynamic', function() {
         var templatesFolder = 'templates/';
+        this.debug = false;
         this.use('Mustache');
         
         this.notFound = function(verb, path) {
@@ -289,6 +290,12 @@
         });
         
         this.bind('run', function(e, data) {
+            //A Workarounnd for switching off debug completely
+            //http://groups.google.com/group/sammyjs/browse_thread/thread/82acab0e4aaf8770
+            if (app.debug === false) {
+                app.log = function(){};
+            }
+            
             $('#form_method select').live('change', function(e){
                 app.trigger('form_select_method_change', {element: $(this)});
             });
