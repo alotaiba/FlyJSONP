@@ -1,9 +1,10 @@
-## Overview
+# Overview
 FlyJSONP is a small JavaScript library, that allows you to do cross-domain `GET` and `POST` requests with remote services that support `JSONP`, and get a `JSON` response. Have a look at the demo to see it in action, or check out get started guide for usage instructions, and examples.
 
-* Demo: [https://alotaiba.github.com/FlyJSONP/#!/demo](https://alotaiba.github.com/FlyJSONP/#!/demo)
-* Guide: [https://alotaiba.github.com/FlyJSONP/#!/start](https://alotaiba.github.com/FlyJSONP/#!/start)
-* Documentation: [https://github.com/alotaiba/FlyJSONP/wiki](https://github.com/alotaiba/FlyJSONP/wiki)
+## Links
+* Demo: [http://alotaiba.github.com/FlyJSONP/#!/demo](http://alotaiba.github.com/FlyJSONP/#!/demo)
+* Guide: [http://alotaiba.github.com/FlyJSONP/#!/start](http://alotaiba.github.com/FlyJSONP/#!/start)
+* Documentation: [http://github.com/alotaiba/FlyJSONP/wiki](http://github.com/alotaiba/FlyJSONP/wiki)
 
 ## Features
 * Cross-domain `GET`, as well as `POST` requests, with `JSON` response. `POST` requests pass through [YQL](http://developer.yahoo.com/yql/).
