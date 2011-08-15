@@ -1,0 +1,99 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>FlyJSONP</title>
+  <meta name="description" content="FLyJSONP is a small JavaScript library to do cross-domin JSON communication, it supports GET and POST HTTP methods.">
+  <meta name="author" content="Abdulrahman Alotaiba">
+  
+  <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon" />
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/960.css">
+  <link rel="stylesheet" href="css/text.css">
+  <link rel="stylesheet" href="css/prettify.css">
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans:700' rel='stylesheet' type='text/css'>
+  <script src="js/libs/modernizr-1.7.min.js"></script>
+</head>
+
+<body>
+
+  <div id="wrapper">
+    <div id="container">
+      <header>
+        <nav class="container_12">
+          <div class="grid_12">
+            <ul class="navigation">
+              <li><a href="#!/start">Get Started</a></li>
+              <li><a href="#!/demo">Demo</a></li>
+              <li><a href="https://github.com/alotaiba/FlyJSONP/wiki">Docs</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <div id="main" role="main">
+        <div class="container_12">
+          <div class="grid_12 top_logo">
+            <h1 class="logo"><a href="#">FlyJSONP</a></h1>
+            <a class="download button" href="http://github.com/alotaiba/FlyJSONP/zipball/master">Download</a>
+          </div>
+          <div id="dynamic"></div>
+        </div> <!-- eo .container_12 -->
+      </div> <!-- eo #main -->
+    </div> <!-- eo #container -->
+  </div> <!-- eo #wrapper -->
+  
+  <footer id="footer">
+    <div class="container_12">
+      <div class="grid_12">
+        <div class="grid_4 alpha">
+          <p>Follow me on:</p>
+          <p>Twitter: <a href="http://twitter.com/#!/alotaiba">@alotaiba</a></p>
+          <p>Github: <a href="http://github.com/alotaiba">alotaiba</a></p>
+        </div>
+        <div class="grid_4">
+          <p>FlyJSONP is a project of <a href="http://www.mawqey.com/">Abdulrahman Al-Otaiba</a>, the project is released under the <a href="http://www.gnu.org/copyleft/gpl.html">GNU GPLv3</a> license, and the content of this website is released under <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons BY-SA</a>.</p>
+        </div>
+        <div class="grid_4 omega">
+          <p>“If programmers deserve to be rewarded for creating innovative programs, by the same token they deserve to be punished if they restrict the use of these programs.” -Richard M. Stallman</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+  <script>window.jQuery || document.write("<script src='js/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>
+  <script src="js/libs/mustache.js"></script>
+  <script src="js/libs/sammy/sammy.js"></script>
+  <script src="js/libs/sammy/plugins/sammy.mustache.js"></script>
+  <script src="js/libs/jstree/jquery.jstree.js"></script>
+  <script src="js/libs/google-code-prettify/prettify.js"></script>
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script src="js/mylibs/flyjsonp.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/app.js"></script>
+  <!-- end scripts-->
+
+
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix("img, .png_bg");</script>
+  <![endif]-->
+
+
+
+  <script>
+    var _gaq=[["_setAccount","UA-25137171-1"],["_trackPageview"]]; // Change UA-XXXXX-X to be your site's ID 
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+    g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+    s.parentNode.insertBefore(g,s)}(document,"script"));
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<div class="grid_12">
+  <section class="grid_6 alpha">
+    <h2>What is FlyJSONP?</h2>
+    <p>
+      FlyJSONP is a small JavaScript library, 2.38KB (1.13KB gzipped), that allows you to do cross-domain <code>GET</code> and <code>POST</code> requests with remote services that support <a href="http://en.wikipedia.org/wiki/JSONP">JSONP</a>, and get a <code>JSON</code> response. Have a look at the <a href="#!/demo">demo</a> to see it in action, or check out <a href="#!/start">get started</a> guide for usage instructions, and examples.
+    </p>
+    <p><a class="try_it button" href="#!/demo">Try it!</a></p>
+  </section>
+  <section class="grid_6 omega">
+    <h2>Features</h2>
+    <ul>
+      <li>Cross-domain <code>GET</code>, as well as <code>POST</code> requests, with <code>JSON</code> response. <code>POST</code> requests pass through <a href="http://developer.yahoo.com/yql/">YQL</a>.</li>
+      <li>Control over the callback parameter name for <code>GET</code> requests.</li>
+      <li>No other dependency on other JavaScript frameworks.</li>
+    </ul>
+  </section>
+</div> <!-- eo .grid_12 -->
+<div class="grid_12">
+  <section class="grid_6 alpha">
+    <h2>How to use FlyJSONP?</h2>
+    <p>
+      First include the script, preferably just before the <code>body</code> tag, call <code>init</code> to setup initial options. Then just call <code>get</code> or <code>post</code> methods.
+    </p>
+    <pre class="prettyprint lang-html"><code>&lt;script src=&quot;/path/to/flyjsonp.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+FlyJSONP.init({debug: true});
+//For GET operation
+FlyJSONP.get({
+  url: 'http://storify.com/xdamman.json',
+  success: function(data) {
+    console.log(data);
+  },
+  error: function(errorMsg) {
+    console.log(errorMsg);
+  }
+});
+
+//For POST operation
+FlyJSONP.post({
+  url: 'http://storify.com/story/new',
+  parameters: {
+    username: 'your-username',
+    api_key: 'secret-api-key',
+    title: 'FlyJSONP',
+    description: 'Testing it out'
+  },
+  success: function(data) {
+    console.log(data);
+  }
+});
+&lt;/script&gt;
+    </code></pre>
+  </section>
+  <section class="grid_6 omega">
+    <h2>Contribute</h2>
+    <p>
+      FlyJSONP is an open source project, you can find the <a href="https://github.com/alotaiba/FlyJSONP">source code</a> on github. Feel free to fork it.
+    </p>
+  </section>
+</div> <!-- eo .grid_12 -->

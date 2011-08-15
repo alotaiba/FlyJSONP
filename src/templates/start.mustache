@@ -1,0 +1,51 @@
+<div class="grid_12">
+  <section class="grid_8 alpha">
+    <h2>Quick Usage Guide</h2>
+    <p>
+      To get started, first <a href="#">download FlyJSONP</a>, and add it to your code. Then simply call <code>init</code> method to setup the initial options.
+    </p>
+    <pre class="prettyprint lang-html"><code>&lt;script src=&quot;/path/to/flyjsonp.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+FlyJSONP.init({debug: true});
+&lt;/script&gt;</code></pre>
+  </section>
+</div> <!-- eo .grid_12 -->
+
+<div class="grid_12">
+  <section class="grid_8 alpha">
+    <h2>GET Request</h2>
+    <p>
+      To issue a cross-domain <code>GET</code> request, you call the <code>get</code> method. It accepts number of options, and calls <code>success</code> callback when provided, with <code>JSON</code> response.
+    </p>
+    <pre class="prettyprint lang-js"><code>FlyJSONP.get({
+  url: 'http://storify.com/xdamman.json',
+  success: function (data) {
+    console.log(data);
+  },
+  error: function (errorMsg) {
+    console.log(errorMsg);
+  }
+});</code></pre>
+  </section>
+</div> <!-- eo .grid_12 -->
+
+<div class="grid_12">
+  <section class="grid_8 alpha">
+    <h2>POST Request</h2>
+    <p>
+      To issue a cross-domain <code>POST</code> request, you call the <code>post</code> method. It accepts number of options, and calls <code>success</code> callback when provided, with <code>JSON</code> response. To get around cross-domain issues for <code>POST</code> requests, FlyJSONP uses <a href="http://developer.yahoo.com/yql/">YQL</a> to send the request and retrieve the response.
+    </p>
+    <pre class="prettyprint lang-js"><code>FlyJSONP.post({
+  url: 'http://storify.com/story/new',
+  parameters: {
+    username: 'your-username',
+    api_key: 'secret-api-key',
+    title: 'FlyJSONP',
+    description: 'Testing it out'
+  },
+  success: function(data) {
+    console.log(data);
+  }
+});</code></pre>
+  </section>
+</div> <!-- eo .grid_12 -->

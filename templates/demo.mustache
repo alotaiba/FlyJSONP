@@ -1,0 +1,124 @@
+<div class="grid_12">
+  <div class="grid_10 alpha">
+    
+    
+    <form class="form_try" action="#!/fetch" method="post">
+      {{#url}}
+      <div class="form_section" id="form_url">
+        <div class="grid_2 alpha">
+          <label class="form_label" for="url">URL:</label>
+        </div>
+        <div class="grid_8 omega">
+          <p class="field_description">URL to the API's endpoint without query string, you can add this in the parameters section.</p>
+      		<input type="url" id="url" name="url" placeholder="URL" value="{{value}}" required />
+    		</div>
+    		<div class="clear"></div>
+    	</div> <!-- eo .form_section -->
+    	{{/url}}
+    	{{#method}}
+    	<div class="form_section" id="form_method">
+        <div class="grid_2 alpha">
+          <label class="form_label" for="method">Method:</label>
+        </div>
+        <div class="grid_8 omega">
+          <p class="field_description">HTTP request method, either GET or POST.</p>
+          <div class="select">
+            <select name="method" id="method">
+              <option value="get" {{#get}}selected{{/get}}>GET</option>
+              <option value="post" {{#post}}selected{{/post}}>POST</option>
+            </select>
+          </div>
+    		</div>
+    		<div class="clear"></div>
+    	</div> <!-- eo .form_section -->
+    	{{/method}}
+    	{{#callback}}
+    	<div class="form_section" id="form_callback">
+        <div class="grid_2 alpha">
+          <label class="form_label" for="callback">Callback Name:</label>
+        </div>
+        <div class="grid_8 omega">
+          <p class="field_description">The callback parameter name that is used to specify the name of the callback function.</p>
+      		<input type="text" id="callback" name="callback" placeholder="Callback Parameter Name" value="{{value}}" />
+    		</div>
+    		<div class="clear"></div>
+    	</div> <!-- eo .form_section -->
+    	{{/callback}}
+    	<div class="form_section" id="form_parameters">
+        <div class="grid_2 alpha" id="form_parameters_label">
+          <label class="form_label" for="keys">Parameters:</label>
+        </div>
+        
+        <div class="grid_8 omega" id="form_parameters_fields">
+          <div class="grid_8 alpha">
+            <p class="field_description">The list of parameters to send along with the request.</p>
+          </div>
+          
+          {{#parameters}}
+          <div class="grid_8 alpha params_fields">
+            <div class="grid_3 alpha">
+          		<input type="text" id="keys" name="keys[]" placeholder="Key" value="{{key}}" required />
+        		</div>
+        		<div class="grid_1">
+          		<p style="font-size: 1.6em; text-align: center">=</p>
+        		</div>
+        		<div class="grid_3">
+          		<input type="text" id="values" name="values[]" placeholder="Value" value="{{value}}" required />
+        		</div>
+        		<div class="grid_1 omega fieldsAddRemove"></div>
+      	  </div>
+      	  <div class="clear"></div>
+      	  {{/parameters}}
+      	  
+        </div>
+  	  </div> <!-- eo .form_section -->
+  	  
+  	  <div class="form_section">
+        <div class="grid_2 alpha">
+          <label class="form_label" for="sumbit">&nbsp;</label>
+        </div>
+        <div class="grid_8 omega">
+      		<button type="submit" id="submit" name="sumbit">
+      		  <span>Submit</span>
+      		</button>
+    		</div>
+    		<div class="clear"></div>
+      </div> <!-- eo .form_section -->
+      </form>
+  	</div> <!-- eo .grid_10 -->
+  	
+  	
+  	<div class="grid_2 omega">
+  	  <div class="demo_links">
+  	  <h6>Try out the sample data:</h6>
+  	  <ul>
+  	    <li><a href="#!/demo-get-tweets">GET latest tweets</a></li>
+  	    <li><a href="#!/demo-get-flickr">GET latest flickr photos</a></li>
+  	    <li><a href="#!/demo-get-reddit">GET latest reddit links</a></li>
+  	    <li><a href="#!/demo-post-story">POST new story on storify</a></li>
+  	    <li><a href="#!/demo-post-tumblr">POST new tumblr post</a></li>
+  	  </ul>
+  	  </div>
+  	</div>
+</div> <!-- eo .grid_12 -->
+
+<div class="grid_12">
+  <div class="grid_10 alpha">
+    <div id="result">
+      <div class="expand_collapse_links">
+        <a href="javascript:;" id="expand_all_link">Expand all</a>
+        &nbsp;|&nbsp;
+        <a href="javascript:;" id="collapse_all_link">Collapse all</a>
+      </div>
+      <div id="result_jsonp">Submit the form to see the JSON result here.</div>
+    </div>
+  </div> <!-- eo .grid_10 -->
+  <div class="grid_2 omega">
+    <div class="result_item_info">
+      <h6>Object Information:</h6>
+      <p class="data_name"><strong>Name:</strong>&nbsp;<span class="data_name_value"></span></p>
+      <p class="data_value"><strong>Value:</strong>&nbsp;<span class="data_value_value"></span></p>
+      <p class="data_type"><strong>Type:</strong>&nbsp;<span class="data_type_value"></span></p>
+    </div>
+  </div> <!-- eo .grid_2 -->
+</div> <!-- eo .grid_12 -->
