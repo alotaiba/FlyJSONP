@@ -5,10 +5,8 @@ test("FlyJSONP init", function() {
     ok( FlyJSONP.options.debug, "Debug is turned on as expected." );
 });
 
-test("FlyJSONP cross-domain GET with response", function() {
+asyncTest("FlyJSONP cross-domain GET with response", function() {
     expect(1);
-    
-    stop();
     
     FlyJSONP.get({
         url: 'http://storify.com/xdamman.json',
@@ -24,10 +22,8 @@ test("FlyJSONP cross-domain GET with response", function() {
     });
 });
 
-test("FlyJSONP cross-domain POST with response", function() {
+asyncTest("FlyJSONP cross-domain POST with response", function() {
     expect(1);
-    
-    stop();
     
     FlyJSONP.post({
         url: 'http://www.tumblr.com/api/write',
@@ -43,6 +39,44 @@ test("FlyJSONP cross-domain POST with response", function() {
         },
         error: function (errorMsg) {
             ok( false, errorMsg );
+        },
+        complete: function () {
+            start();
+        }
+    });
+});
+
+
+asyncTest("FlyJSONP cross-domain GET with invalid URL", function() {
+    expect(1);
+    
+    FlyJSONP.get({
+        url: 'http://invalidurl',
+        success: function(data) {
+            ok( false, "Got valid reponse" );
+        },
+        error: function (errorMsg) {
+            ok( true, errorMsg );
+        },
+        complete: function () {
+            start();
+        }
+    });
+});
+
+asyncTest("FlyJSONP cross-domain POST with invalid URL", function() {
+    expect(1);
+    
+    FlyJSONP.post({
+        url: 'http://invalidurl',
+        parameters: {
+            data: 'hello'
+        },
+        success: function(data) {
+            ok( false, "Got valid reponse" );
+        },
+        error: function (errorMsg) {
+            ok( true, errorMsg );
         },
         complete: function () {
             start();

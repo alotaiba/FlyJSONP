@@ -1,5 +1,5 @@
 /*
- * FlyJSONP v0.1
+ * FlyJSONP v0.2
  * http://alotaiba.github.com/FlyJSONP
  * 
  * FlyJSONP is a small JavaScript library, that allows you to do
@@ -7,7 +7,7 @@
  * JSONP, and get a JSON response.
  * 
  * Copyright (c) 2011 Abdulrahman Al-Otaiba
- * Licensed under the GNU GPLv3
+ * Dual-licensed under MIT and GPLv3.
  */
 
 var FlyJSONP = (function (global) {
