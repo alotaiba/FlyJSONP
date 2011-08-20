@@ -49,7 +49,7 @@ To issue a cross-domain `POST` request, you call the `post` method. It accepts n
     });
     
 ## License
-FlyJSONP is a project of Abdulrahman Al-Otaiba, the project is released under the GNU GPLv3 license. See LICENSE for more details.
+FlyJSONP is a project of Abdulrahman Al-Otaiba, the project is dual-licensed under GNU GPLv3, and MIT. See [LICENSE](https://github.com/alotaiba/FlyJSONP/blob/master/LICENSE) for more details.
 
 ## Thanks
 I would like to thank the following people, and give them credit for their awesome work:
