@@ -158,7 +158,10 @@ var FlyJSONP = (function (global) {
                 callError(options.error, 'Invalid JSON data returned');
             } else {
                 if (options.httpMethod === 'post') {
-                    data = data.query.results;
+                    typeof (data.query) !== 'undefined' 
+                        ? data = data.query.results 
+                        : callError(options.error, 'data.query is undefined');
+                        
                     if (!data || !data.postresult) {
                         callError(options.error, 'Invalid JSON data returned');
                     } else {
